@@ -1,0 +1,29 @@
+{
+    "name": "neogreco/json-request-parser",
+    "description": "Simple class to read a json from a request no matter what type of compression/encoding has",
+    "require": {
+        "php": "^7.3|^8.0",
+        "vdechenaux/brotli": "^1.0",
+        "monolog/monolog": "^2.3"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Neogreco\\JsonRequestParser\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Emiliano Greco",
+            "email": "emiliano@millennialit.company",
+            "homepage": "https://www.emilianogreco.me",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "support@millennialit.company"
+    },
+    "minimum-stability": "alpha",
+    "funding": [
+    ]
+}
