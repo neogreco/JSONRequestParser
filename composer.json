@@ -12,7 +12,7 @@
             "Neogreco\\JsonRequestParser\\": "src/"
         },
         "files": [
-          "src/JsonRequestParser.php"
+          "src/JSON/tools/JsonRequestParser.php"
         ]
     },
     "authors": [
