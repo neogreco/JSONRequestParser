@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Utility;
+namespace JSON\tools;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use VDX\Brotli\Exception\BrotliException;
