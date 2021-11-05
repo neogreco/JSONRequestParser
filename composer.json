@@ -9,7 +9,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Neogreco\\JsonRequestParser\\": "src/"
+            "Neogreco\\JsonRequestParser\\": "src/JSON/tools/"
         },
         "files": [
           "src/JSON/tools/JsonRequestParser.php"
