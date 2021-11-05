@@ -10,7 +10,10 @@
     "autoload": {
         "psr-4": {
             "Neogreco\\JsonRequestParser\\": "src/"
-        }
+        },
+        "files": [
+          "src/JsonRequestParser.php"
+        ]
     },
     "authors": [
         {
@@ -25,5 +28,15 @@
     },
     "minimum-stability": "alpha",
     "funding": [
-    ]
+    ],
+    "require-dev": {
+        "orchestra/testbench": "^3.8"
+    },
+    "extra": {
+        "laravel": {
+          "providers": [
+            "JsonRequestParser\\JsonRequestParserServiceProvider"
+          ]
+        }
+      }
 }
