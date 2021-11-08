@@ -9,20 +9,18 @@ class JSONRequestParser
 {
     public static function extractJsonFrom(string $encodedData, $encodingHeader)
     {
-
         // create a log channel
         $log = new Logger('json_parser.log');
         $log->pushHandler(new StreamHandler('json_parser.log', Logger::INFO));
         try {
             $decompressed = $encodedData;
-            if ($encodingHeader == 'gzip') {
-                $log->info("Gzip compression found!");
-                $decompressed = gzdecode($encodedData);
-            } else if ($encodingHeader == 'br') {
-                $log->info("Brotli compression found!");
-                $decompressed = brotli_uncompress($encodedData);
-            } else {
-                $log->info("Not able to risolve for " . $encodingHeader);
+            $headerEncodingArray=$encodingHeader;
+            if (!is_array($encodingHeader)){
+                $headerEncodingArray=array();
+                array_push($headerEncodingArray,$encodingHeader);
+            }
+            foreach ($headerEncodingArray as $encoding){
+                    $decompressed = JSONRequestParser::decodeString($decompressed,$encoding);
             }
             $json = json_decode($decompressed);
         } catch (Exception $e) {
@@ -42,5 +40,19 @@ class JSONRequestParser
             );
         }
         return $json;
+    }
+
+    public static function decodeString($inputString, $encoding){
+        $decompressed=$inputString;
+        if ($encoding == 'gzip') {
+            $log->info("Gzip compression found!");
+            $decompressed = gzdecode($inputString);
+        } else if ($encoding == 'br') {
+            $log->info("Brotli compression found!");
+            $decompressed = brotli_uncompress($inputString);
+        } else {
+            $log->info("Not able to risolve for " . $encoding);
+        }
+        return $decompressed;
     }
 }
