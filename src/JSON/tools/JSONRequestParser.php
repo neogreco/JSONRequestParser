@@ -53,7 +53,7 @@ class JSONRequestParser
             $log->info("Brotli compression found!");
             $decompressed = brotli_uncompress($inputString);
         } else {
-            $log->info("Not able to risolve for " . $encoding);
+            $log->info("Not able to risolve for " . json_encode($encoding));
         }
         return $decompressed;
     }
