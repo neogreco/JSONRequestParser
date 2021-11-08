@@ -1,6 +1,8 @@
 <?php
 
 namespace JSON\tools;
+
+use Exception;
 use VDX\Brotli\Exception\BrotliException;
 
 class JSONRequestParser
