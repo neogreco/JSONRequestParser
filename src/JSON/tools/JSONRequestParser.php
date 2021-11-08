@@ -43,6 +43,8 @@ class JSONRequestParser
     }
 
     public static function decodeString($inputString, $encoding){
+          // create a log channel
+          $log = new Logger('json_parser_decode.log');
         $decompressed=$inputString;
         if ($encoding == 'gzip') {
             $log->info("Gzip compression found!");
