@@ -9,6 +9,9 @@ class JSONRequestParser
 {
     public static function extractJsonFrom(string $encodedData, $encodingHeader)
     {
+        if ($encodingHeader==null){
+            return json_decode($encodedData);
+        }
         try {
             $decompressed = $encodedData;
             $headerEncodingArray=$encodingHeader;
